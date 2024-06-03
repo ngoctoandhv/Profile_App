@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
+
+  devise_for :users
   resources :posts
   resources :categories
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -9,4 +12,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  as :user do
+    get "signin" => "devise/sessions#new"
+    post "signin" => "devise/sessions#create"
+    delete "signout" => "devise/sessions#destroy"
+  end
 end
