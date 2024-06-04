@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { API_URL } from "../constants";
 
 function PostsList() {
 
@@ -10,11 +9,9 @@ function PostsList() {
 
   // fetch posts from the API
   useEffect(() => {
-    const apiUrl = process.env.RAILS_API_URL;
     async function loadPosts() {
       try {
-        const response = await fetch("http://localhost:3000/api/v1/posts")
-        console.log(apiUrl)
+        const response = await fetch(process.env.REACT_APP_RAILS_API_URL + "/posts")
         if (response.ok) {
           const json = await response.json();
           setPosts(json)
