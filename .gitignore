@@ -22,6 +22,7 @@ api/tmp/storage/*
 !/api/tmp/storage/
 !/api/tmp/storage/.keep
 api/node_modules
+api/.env
 
 # Ignore master key for decrypting credentials and more.
 api/config/master.key
