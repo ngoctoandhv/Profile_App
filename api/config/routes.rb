@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root to: "admin/dashboard#index"
 
+  get "admin" => "admin/dashboard#index"
+
+  devise_for :users
   devise_scope :user do
     get "signin" => "devise/sessions#new"
     post "signin" => "devise/sessions#create"
