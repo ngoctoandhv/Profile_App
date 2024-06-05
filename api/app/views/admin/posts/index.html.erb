@@ -1,0 +1,28 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Posts</h1>
+  <%= link_to "New post", new_admin_post_path, class: "d-sm-inline-block btn btn-sm btn-primary shadow-sm" %>
+</div>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12">
+    <div class="card shadow mb-4" style="min-height: 400px">
+      <div id="posts" class="me-2 ms-2" >
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Titel</th>
+              <th scope="col">Content</th>
+              <th scope="col">Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+              <%= render post %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

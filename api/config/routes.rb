@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     delete "signout" => "devise/sessions#destroy"
   end
 
-  resources :posts
-  resources :categories
+  namespace :admin do
+    resources :posts
+    resources :categories
+  end
 
   namespace :api do
     namespace :v1 do

@@ -12,9 +12,10 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item active">
-    <a class="nav-link" href="index.html">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
+    <%= link_to admin_path, class: "nav-link" do %>
+      <%= fa_icon "font-awesome" %>
+      <i class="fa-solid fa-gauge"></i> <span>Dashboard</span>
+    <% end %>
   </li>
 
   <!-- Divider -->
@@ -27,34 +28,26 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed">
-      <i class="fas fa-fw fa-cog"></i>
+    <%= link_to admin_categories_path, class: "nav-link" do %>
+      <%= fa_icon "book" %>
       <span>Categories</span>
-    </a>
+    <% end %>
   </li>
 
   <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
-    <a class="nav-link collapsed">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Posts</span>
-    </a>
+    <%= link_to admin_posts_path, class: "nav-link" do %>
+      <%= fa_icon "file" %>
+      <span>Posts</span>
+    <% end %>
   </li>
-
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-
-  <!-- Heading -->
-  <div class="sidebar-heading">
-      Addons
-  </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">
-      <a class="nav-link collapsed">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Users</span>
-      </a>
+    <%= link_to admin_posts_path, class: "nav-link" do %>
+      <%= fa_icon "users" %>
+      <span>Users</span>
+    <% end %>
   </li>
 
   <!-- Divider -->

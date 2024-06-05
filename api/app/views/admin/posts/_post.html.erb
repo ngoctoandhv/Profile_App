@@ -1,0 +1,6 @@
+<tr id="<%= dom_id post %>">
+  <th scope="row"><%= post.id %></th>
+  <td><%= link_to post.title, admin_post_path(post.id) %></td>
+  <td><%= post.content %></td>
+  <td><%= post.category.name %></td>
+</tr>
