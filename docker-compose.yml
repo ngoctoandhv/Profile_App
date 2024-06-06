@@ -17,7 +17,7 @@ services:
     working_dir: /api
     volumes:
       - ./api:/api
-      - ./api:/bundle
+      - ./api:/api/bundle
       - /api/node_modules
     env_file:
       ./api/.env
