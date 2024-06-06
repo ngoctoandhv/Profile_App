@@ -11,7 +11,11 @@ function PostsList() {
   useEffect(() => {
     async function loadPosts() {
       try {
-        const response = await fetch(process.env.REACT_APP_RAILS_API_URL + "/posts")
+        const response = await fetch(process.env.REACT_APP_RAILS_API_URL + "/posts", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }})
         if (response.ok) {
           const json = await response.json();
           setPosts(json)
