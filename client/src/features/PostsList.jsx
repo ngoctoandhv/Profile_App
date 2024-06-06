@@ -13,6 +13,7 @@ function PostsList() {
       try {
         const response = await fetch(process.env.REACT_APP_RAILS_API_URL + "/posts", {
           method: 'GET',
+          crossDomain: true,
           headers: {
             'Content-Type': 'application/json'
           }})
