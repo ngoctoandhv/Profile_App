@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Chip from '../../../common/Chip';
 import './styles.css';
 
-const BlogItem = ({
-  blog: {
+const PostItem = ({
+  post: {
     description,
     title,
     createdAt,
@@ -16,24 +16,24 @@ const BlogItem = ({
   },
 }) => {
   return (
-    <div className='blogItem-wrap'>
-      <Link to={`/blog/${id}`}>
-        <img className='blogItem-cover' src={cover} alt='cover' />
+    <div className='postItem-wrap'>
+      <Link to={`/post/${id}`}>
+        <img className='postItem-cover' src={cover} alt='cover' />
       </Link>
       <Chip label={category} />
-      <Link to={`/blog/${id}`}>
+      <Link to={`/post/${id}`}>
         <h3>{title}</h3>
       </Link>
-      <p className='blogItem-desc'>{description}</p>
+      <p className='postItem-desc'>{description}</p>
       <footer>
-        <div className='blogItem-author'>
+        <div className='postItem-author'>
           <img src={authorAvatar} alt='avatar' />
           <div>
             <h6>{authorName}</h6>
             <p>{createdAt}</p>
           </div>
         </div>
-        <Link className='blogItem-link' to={`/blog/${id}`}>
+        <Link className='postItem-link' to={`/post/${id}`}>
           ➝
         </Link>
       </footer>
@@ -41,4 +41,4 @@ const BlogItem = ({
   );
 };
 
-export default BlogItem;
+export default PostItem;

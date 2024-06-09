@@ -1,0 +1,19 @@
+.site-bar {
+  min-height: 400px;
+  text-align: center;
+}
+
+.site-bar .img-fluid {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+}
+
+.site-bar p {
+  color: #a9a9a9
+}
+
+.site-bar .link-icon {
+  font-size: 30px;
+  font-weight: 500;
+}

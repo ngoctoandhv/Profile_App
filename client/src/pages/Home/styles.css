@@ -1,0 +1,32 @@
+.sidebar {
+  position: fixed;
+  left: 82%;
+}
+
+.search-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 100% !important;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .search-bar {
+    display: block;
+  }
+}
+
+/* @media (max-width: 600px) {
+  .content {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+} */

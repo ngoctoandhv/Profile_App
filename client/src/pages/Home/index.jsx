@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import EmptyList from '../../components/common/EmptyList';
-import BlogList from '../../components/Home/BlogList';
+import PostList from '../../components/Home/PostList';
 import Header from '../../components/Home/Header';
 import SearchBar from '../../components/Home/SearchBar';
-import { blogList } from '../../config/data';
+import { postList } from '../../config/data';
+import SideBar from '../../components/Home/SideBar';
+
+import './styles.css';
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(blogList);
+  const [posts, setPosts] = useState(postList);
   const [searchKey, setSearchKey] = useState('');
 
   // Search submit
@@ -15,27 +18,28 @@ const Home = () => {
     handleSearchResults();
   };
 
-  // Search for blog by category
+  // Search for post by category
   const handleSearchResults = () => {
-    const allBlogs = blogList;
-    const filteredBlogs = allBlogs.filter((blog) =>
-      blog.category.toLowerCase().includes(searchKey.toLowerCase().trim())
+    const allPosts = postList;
+    const filteredPosts = allPosts.filter((post) =>
+      post.category.toLowerCase().includes(searchKey.toLowerCase().trim())
     );
-    setBlogs(filteredBlogs);
+    setPosts(filteredPosts);
   };
 
-  // Clear search and show all blogs
+  // Clear search and show all posts
   const handleClearSearch = () => {
-    setBlogs(blogList);
+    setPosts(postList);
     setSearchKey('');
   };
+
+  
 
   return (
     <div>
       {/* Page Header */}
       <Header />
 
-      {/* Search Bar */}
       <SearchBar
         value={searchKey}
         clearSearch={handleClearSearch}
@@ -43,8 +47,19 @@ const Home = () => {
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />
 
-      {/* Blog List & Empty View */}
-      {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
+      <div className='container'>
+        <div className='row'>
+          <div className='col-10 content'>
+            {/* Post List & Empty View */}
+            {!posts.length ? <EmptyList /> : <PostList posts={posts} />}
+          </div>
+
+          <div className='col-2 sidebar shadow-lg'>
+            {/* Side bar */}
+            < SideBar />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

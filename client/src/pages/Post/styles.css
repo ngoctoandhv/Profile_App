@@ -1,9 +1,9 @@
-.blog-wrap {
+.post-wrap {
   max-width: 700px;
   margin: 0 auto;
 }
 
-.blog-goBack {
+.post-goBack {
   text-decoration: none;
   font-size: 0.8rem;
   color: #a9a9a9;
@@ -11,28 +11,28 @@
   margin-bottom: 2rem;
   display: block;
 }
-.blog-wrap header {
+.post-wrap header {
   text-align: center;
 }
 
-.blog-date {
+.post-date {
   font-size: 0.8rem;
   color: #a9a9a9;
   font-weight: 500;
 }
 
-.blog-wrap img {
+.post-wrap img {
   width: 100%;
 }
 
-.blog-subCategory {
+.post-subCategory {
   display: flex;
   justify-content: center;
 }
-.blog-subCategory > div {
+.post-subCategory > div {
   margin: 1rem;
 }
-.blog-desc {
+.post-desc {
   padding: 1rem;
   margin-top: 1.5rem;
 }
