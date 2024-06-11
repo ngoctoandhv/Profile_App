@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @category %>
+<p>ID: <%= @category.id %></p>
+<p>Name: <%= @category.name %></p>
+<p>Created at: <%= @category.created_at %></p>
 
 <div>
-  <%= link_to "Edit this category", edit_admin_category_path(@category) %> |
-  <%= link_to "Back to categories", admin_categories_path %>
-
-  <%= button_to "Destroy this category", admin_category_path(@category), method: :delete %>
+  <%= link_to "Edit", edit_admin_category_path(@category), class: "btn btn-primary" %> |
+  <%= link_to "Back to categories", admin_categories_path, class: "btn btn-secondary" %>
+  <%= button_to "Destroy", admin_category_path(@category), method: :delete, class: "btn btn-danger mt-4" %>
 </div>

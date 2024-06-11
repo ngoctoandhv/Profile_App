@@ -1,11 +1,20 @@
 class Api::V1::PostsController < ApplicationController
   # before_action :set_post, only: %i[ show update destroy ]
+  include Rails.application.routes.url_helpers
 
   # GET /posts
   def index
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.order(created_at: :desc).includes(:image_attachment)
 
-    render json: @posts
+    posts_with_images = @posts.map do |post|
+      if post.image.attached?
+        post.as_json.merge(image_url: url_for(post.image))
+      else
+        post.as_json.merge(image_url: nil)
+      end
+    end
+
+    render json: posts_with_images
   end
 
   # GET /posts/1

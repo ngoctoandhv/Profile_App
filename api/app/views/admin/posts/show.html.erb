@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<p>ID: <%= @post.id %></p>
+<p>Title: <%= @post.title %></p>
+<p>Content: <%= @post.content %></p>
+<% if @post.image.attached? %>
+  <%= image_tag @post.image, style: "width: 300px; height: auto" %>
+<% end %>
+<p>Category Name: <%= @post.category.name %></p>
+<p>Created at: <%= @post.created_at %></p>
 
 <div>
-  <%= link_to "Edit this post", edit_admin_post_path(@post) %> |
-  <%= link_to "Back to posts", admin_posts_path %>
-
-  <%= button_to "Destroy this post", admin_post_path(@post), method: :delete %>
+  <%= link_to "Edit this post", edit_admin_post_path(@post), class: "btn btn-primary"  %> |
+  <%= link_to "Back to posts", admin_posts_path, class: "btn btn-secondary" %>
+  <%= button_to "Destroy this post", admin_post_path(@post), method: :delete, class: "btn btn-danger mt-4" %>
 </div>
