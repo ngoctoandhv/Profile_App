@@ -6,7 +6,7 @@ const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
     <form onSubmit={formSubmit}>
       <input
         type='text'
-        placeholder='Search By Category'
+        placeholder='Search By Title'
         value={value}
         onChange={handleSearchKey}
       />

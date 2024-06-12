@@ -1,26 +1,15 @@
 class Api::V1::PostsController < ApplicationController
-  # before_action :set_post, only: %i[ show update destroy ]
+  before_action :set_post, only: %i[ show ]
   include Rails.application.routes.url_helpers
 
   # GET /posts
   def index
-    @posts = Post.order(created_at: :desc).includes(:image_attachment)
-
-    posts_with_images = @posts.map do |post|
-      if post.image.attached?
-        post.as_json.merge(image_url: url_for(post.image))
-      else
-        post.as_json.merge(image_url: nil)
-      end
-    end
-
-    render json: posts_with_images
+    @posts = Post.order(created_at: :desc)
   end
 
   # GET /posts/1
-  # def show
-  #   render json: @post
-  # end
+  def show
+  end
 
   # POST /posts
   # def create
@@ -49,9 +38,9 @@ class Api::V1::PostsController < ApplicationController
 
 private
   # Use callbacks to share common setup or constraints between actions.
-  # def set_post
-  #   @post = Post.find(params[:id])
-  # end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   # Only allow a list of trusted parameters through.
   # def post_params

@@ -5,29 +5,32 @@ import './styles.css';
 
 const PostItem = ({
   post: {
-    description,
+    content,
     title,
     createdAt,
     authorName,
     authorAvatar,
-    cover,
+    image_url,
     category,
     id,
   },
 }) => {
+  const defaultImage = '/assets/images/make-it-personal.jpg';
+  const defaultAvatar = '/assets/images/author.jpg';
+
   return (
     <div className='postItem-wrap'>
       <Link to={`/post/${id}`}>
-        <img className='postItem-cover' src={cover} alt='cover' />
+        <img className='postItem-cover' src={image_url || defaultImage} alt='image_blog' />
       </Link>
       <Chip label={category} />
       <Link to={`/post/${id}`}>
         <h3>{title}</h3>
       </Link>
-      <p className='postItem-desc'>{description}</p>
+      <p className='postItem-desc'>{content}</p>
       <footer>
         <div className='postItem-author'>
-          <img src={authorAvatar} alt='avatar' />
+          <img src={authorAvatar || defaultAvatar} alt='avatar' />
           <div>
             <h6>{authorName}</h6>
             <p>{createdAt}</p>
