@@ -14,7 +14,7 @@ const Post = () => {
   useEffect(() => {
     const fetchCurrentPost = async () => {
       try {
-        const response = await fetch(process.env.REACT_APP_RAILS_API_URL + `posts/${id}`);
+        const response = await fetch(process.env.REACT_APP_RAILS_API_URL + `/posts/${id}`);
         if (response.ok) {
           const json = await response.json();
           setPost(json)
